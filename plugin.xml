@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.decorators">
+      <decorator
+            adaptable="true"
+            class="nl.hostnet.deadfiles.decorators.DeadFileDecorator"
+            id="nl.hostnet.deadfiles.decorators.deadfiledecorator"
+            label="Dead File Decorator"
+            lightweight="true"
+            state="true">
+         <enablement>
+               <objectClass
+                     name="org.eclipse.core.resources.IResource">
+               </objectClass>              
+         </enablement>
+      </decorator>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="nl.hostnet.deadfiles.preferences.PreferencePage"
+            id="nl.hostnet.deadfiles.preferences.PreferencePage"
+            name="Dead File Preferences">            
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="nl.hostnet.deadfiles.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension point = "org.eclipse.ui.propertyPages">
+      <page
+            class="nl.hostnet.deadfiles.properties.DeadPropertyPage"
+            icon="icons/hoster.gif"
+            id="nl.hostnet.deadfiles.properties.DeadPropertyPage"
+            name="Dead File">
+        <enabledWhen>
+              <and>
+              <adapt type="org.eclipse.core.resources.IResource"></adapt>
+              <instanceof value="org.eclipse.core.resources.IProject"></instanceof>
+              </and>
+         </enabledWhen>    
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="nl.hostnet.deadfiles.actionSet"
+            label="Hostnet"
+            visible="true">
+         <action
+               class="nl.hostnet.deadfiles.actions.RefreshAction"
+               icon="icons/hoster.gif"
+               id="nl.hostnet.deadfiles.actions.RefreshAction"
+               label="Reload &amp;dead file colors"
+               menubarPath="nl.hostnet.nl.deadfiles.menu/content"
+               tooltip="Reload dead file colors">
+         </action>
+         <menu
+               icon="icons/hoster.gif"
+               id="nl.hostnet.nl.deadfiles.menu"
+               label="&amp;Hostnet"
+               path="additions">
+         </menu>
+      </actionSet>
+   </extension>
+
+</plugin>

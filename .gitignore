@@ -36,12 +36,12 @@ Thumbs.db
 
 # Eclipse Files #
 #################
-.project
-.classpath
-.buildpath
+#.project
+#.classpath
+#.buildpath
 .metadata
-.settings
-.texlipse
+#.settings
+#.texlipse
 
 # Backups #
 ##########

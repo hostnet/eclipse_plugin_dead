@@ -34,15 +34,6 @@ ehthumbs.db
 Icon?
 Thumbs.db
 
-# Eclipse Files #
-#################
-#.project
-#.classpath
-#.buildpath
-.metadata
-#.settings
-#.texlipse
-
 # Backups #
 ##########
 *~
